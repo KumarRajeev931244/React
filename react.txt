@@ -1,0 +1,2 @@
+set counter contain the call back function which is used to update value.
+setCounter((prevCounter) => prevCounter + 1 )

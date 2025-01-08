@@ -10,6 +10,7 @@ import User from './component/User/User';
 import Github, { gitHubInfoLoader } from './component/Github/Github'
 
         // method 1 for routing 
+        
 
 // const router = createBrowserRouter([
 //   {

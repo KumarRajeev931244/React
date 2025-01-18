@@ -11,7 +11,10 @@ function App() {
   const passwordRef = useRef(null)
 
 
-  // useCallback
+  // useCallback => The useCallback Hook in React is a performance optimization tool that memoizes (caches) callback functions. This means it prevents the function from being recreated on every render unless its dependencies change. This is crucial for optimizing performance, especially when passing callbacks as props to child components that use React.memo or when using referential equality in other hooks like useEffect.
+
+
+  // here objective of code optimisation
   const passwordGenerator = useCallback(() => {
     let pass = ""
     let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
@@ -26,12 +29,17 @@ function App() {
     setPassword(pass)
   } , [length, numberAllowed, charAllowed, setPassword])
 
+
   const copyPasswordToClipboard = useCallback(() => {
+    // it will highlight the text
     passwordRef.current?.select();
+    // it will give the range
     passwordRef.current?.setSelectionRange(0,5)
+    // it will copy password to the clipboard.
     window.navigator.clipboard.writeText(password)
   },[password])
 
+  // it will re-render or call function when their dependencies will change.
   useEffect(() => {
     passwordGenerator()
   }, [length, numberAllowed, charAllowed, passwordGenerator])
@@ -41,7 +49,11 @@ function App() {
     //                 {/* card wala code */}
     //    <div className="flex">
     //    <Card  image={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZYDmYNyRzoZheVVmDPUWynWSVrjmftv8wfg&s"} content = "“Tailwind CSS is the only framework that I've seen scale on large teams. It’s easy to customize, adapts to any design,and the build size is tiny." />'
+
+
     //    <Card  image={"https://images.pexels.com/photos/1643457/pexels-photo-1643457.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"} content="JSX lets you put markup into JavaScript. Curly braces let you “escape back” into JavaScript so that you can embed some variable from your code and display it to the user. " />
+
+    
     //    <Card image={"https://t3.ftcdn.net/jpg/07/17/33/40/360_F_717334058_zZu41aMmrR0CvBxI3WLbWRjrqFyLAdW1.jpg"} content=" Notice how <li> has a key attribute. For each item in a list, you should pass a string or a number that uniquely identifies that item among its siblings. Usually, a key should be coming from your data, such as a database ID. "/>
     //    <Card content= "“Tailwind CSS is the only framework that I've seen scale on large teams. It’s easy to customize, adapts to any design,and the build size is tiny." image={"https://img.freepik.com/premium-photo/charming-white-cat-with-pink-hat-featuring-heart-embellishment_922357-40796.jpg"}/>
     //    </div>
@@ -79,10 +91,13 @@ function App() {
         readOnly
         ref={passwordRef}
          />
+
+         {/* copy button password */}
          <button className="outline-none bg-blue-700 text-white px-3 py-0.5 shrink-0" onClick={copyPasswordToClipboard}>copy</button>
         </div>
         <div className="flex text-sm gap-x-2">
           <div className="flex items-center gap-x-1">
+            {/* setting the length */}
             <input 
             type="range"
             min={6}
@@ -93,14 +108,24 @@ function App() {
             />
             <label className="text-white">Length: {length}</label>
           </div>
+
           <div className="flex items-center gap-x-1">
-            <input type="checkbox" defaultValue={numberAllowed}  id="numberInput" onChange={() => {setNumberAllowed((prev) => !prev)}}/>
+            <input 
+              type="checkbox" 
+              defaultValue={numberAllowed}  
+              id="numberInput" 
+              onChange={() => {setNumberAllowed((prev) => !prev)}}
+            />
             <label htmlFor="numberInput" className="text-white">Numbers</label>
           </div>
+
           <div className="flex items-center gap-x-1">
-            <input type="checkbox" defaultValue={charAllowed} id="characterInput" onChange={() => {
-              setCharAllowed((prev) => !prev)
-            }} />
+            <input 
+              type="checkbox" 
+              defaultValue={charAllowed} 
+              id="characterInput" 
+              onChange={() => {setCharAllowed((prev) => !prev)}}
+            />
             <label htmlFor="characterInput" className="text-white">character</label>
           </div>
         </div>

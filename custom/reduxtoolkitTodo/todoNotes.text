@@ -1,0 +1,3 @@
+React-Redux toolkit
+
+react redux toolkit mae hume sab se phele store banna padtha jo banta hai configureStore() function se. Dusre step mae humhe slice bana padtha hai createSlice() function se. createSlice jo function hai voh tin cheej store karte hai. Phela name dusra initial state aur thisra reducer. jo reducer state hai usme humhe milta hai action and state. state humhe current state ke bare mae batata hai aur action humhe jo phi pass karna hota hai.

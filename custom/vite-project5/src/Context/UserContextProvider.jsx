@@ -8,6 +8,7 @@ import UserContext from "./UserContext";
 const UserContextProvider = ({children}) => {
     const [user, setUser] = useState(null)
     return(
+        // here we passed value as object inside which we can access the user and setUser
         <UserContext.Provider value={{user, setUser}}>
             {children}
         </UserContext.Provider>

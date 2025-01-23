@@ -14,8 +14,8 @@ import Github, { gitHubInfoLoader } from './component/Github/Github'
 
 // const router = createBrowserRouter([
 //   {
-//     path: '/',
-//     element: <Layout/>,
+//     path: '/',       //it is top level nesting or it is home page.
+//     element: <Layout/>,    // we bring the layout.
 //     children: [
 //       {
 //         path: "",
@@ -44,6 +44,7 @@ const router = createBrowserRouter(
       <Route path='contact' element = {<Contact/>}/>
       <Route path='user/:userid' element = {<User/>}/>
       <Route 
+          // loader is used for fetching the api call when the cursor point on.
         loader= {gitHubInfoLoader}
         path='github' 
         element = {<Github/>}/>
@@ -55,6 +56,7 @@ const router = createBrowserRouter(
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    {/* routerProvider take router otherwise it will not work. */}
     <RouterProvider router={router}/>
   </StrictMode>,
 )

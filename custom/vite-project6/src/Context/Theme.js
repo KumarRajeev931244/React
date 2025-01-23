@@ -3,6 +3,7 @@ import { createContext } from "react";
 
 // at the initial stage kon kon se value already feed ho
 export const ThemeContext = createContext({
+    // create context ke andar hum value or function dono de sakte hai. 
     themeMode: "light",
     darkTheme: () => {},
     lightTheme: () => {}

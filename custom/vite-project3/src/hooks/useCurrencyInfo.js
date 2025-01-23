@@ -5,10 +5,9 @@ import { useEffect, useState } from "react";
 function useCurrencyInfo(currency){
     const [data, setData] = useState({})
     useEffect( () => {
-        fetch(`https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/${currency}.json`).then((response) => response.json()).then((response) => setData(response[currency]))
-        console.log(data);       
+        fetch(`https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/${currency}.json`).then((response) => response.json()).then((response) => setData(response[currency])) //here we are accessing the object by square bracket.       
     }, [currency])
-    console.log(data);
+    console.log(`data1: ${data}`);
     return data
     
 }

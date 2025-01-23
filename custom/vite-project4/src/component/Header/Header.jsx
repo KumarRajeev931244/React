@@ -1,6 +1,8 @@
 import React from "react";
 import {Link, NavLink} from 'react-router-dom'
 
+//The NavLink component is an enhanced version of Link. It provides additional styling and active state information, making it easier to style navigation menus and highlight the currently active link.
+
 export default function Header(){
     return(
         <header className="shadow sticky z-50 top-0">

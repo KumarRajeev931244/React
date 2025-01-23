@@ -7,7 +7,7 @@ function App() {
   const [amount, setAmount] = useState(0)
   const [from, setFrom] = useState("usd")
   const [to, setTo] = useState('inr')
-  const [convertedAmount, setConvertedAmount] = useState(0)
+  const [convertedAmount, setConvertedAmount ] = useState(0)
   const currencyInfo = useCurrencyInfo(from)
   const option = Object.keys(currencyInfo)
   const swap = () => {
@@ -30,6 +30,7 @@ function App() {
       <div className="w-full">
         <div className="w-full max-w-md mx-auto border border-gray-60 rounded-lg p-5 backdrop-blur-sm bg-white/30">
           <form onSubmit={(e) => {
+            // jab bhi form submit hota hai toh voh kisi url ya phir address pe jata hai usko prevent karne ke liye yeah use karte hai
             e.preventDefault()
             convert()
             }}>
@@ -56,7 +57,7 @@ function App() {
               amount={convertedAmount} 
               currencyOption={option}
               onCurrencyChange={(currency) => {setTo(currency)}}
-              selectCurrency= {from}
+              selectCurrency= {to}
               amountDisable
                />
             </div>

@@ -24,14 +24,15 @@ function App() {
     setTodos((prev) => prev.map((prevTodo) => prevTodo.id === id ? {...prevTodo, completed: !prevTodo.completed} : prevTodo))
   }
 
+
+  // local storage
   useEffect(() => {
+    
     const todos = JSON.parse(localStorage.getItem("todos"))
 
     if(todos && todos.length > 0){
       setTodos(todos)
-
     }
-
   }, [])
 
   useEffect( () => {

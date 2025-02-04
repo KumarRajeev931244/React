@@ -4,6 +4,7 @@ import { addTodo } from "../Features/Todo/todoSlice";
 
 export default function AddTodo() {
     const [input, setInput] = useState('')
+    // add mae toh value bhejni hai esley dispatch use karte hai.
     const dispatch = useDispatch()
 
     // dispatch reducers ko use karte hue store mae changes karta hai.

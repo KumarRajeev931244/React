@@ -29,7 +29,16 @@ export const todoSlice = createSlice({
 })
 
 // how to export functionality of reducers.
+// we have to export the functionality.
 
 export const {addTodo, removeTodo } = todoSlice.actions
 
 export default todoSlice.reducer
+
+/**
+ * 1) configure the store
+ * 2) we have to make inital state
+ * 3) we have to createSlice which contain the name, initial state and reducers.
+ * 4) we export todoslice using action.
+ * 
+ */

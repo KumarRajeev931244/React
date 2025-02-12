@@ -1,0 +1,3 @@
+context api
+
+for creating context api we have to create context which is functionality of react 'createContext'.After creating context we have to make provider.
